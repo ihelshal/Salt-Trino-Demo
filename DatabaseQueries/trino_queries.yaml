@@ -1,0 +1,31 @@
+- name: create_schema
+  table: create_schema
+  columns:
+  query: CREATE SCHEMA IF NOT EXISTS memory.demo
+
+- name: create_table
+  table: test_table
+  columns:
+  query: CREATE TABLE IF NOT EXISTS memory.demo.test_table (id INT, message VARCHAR)
+
+- name: insert_into_table
+  table: test_table
+  columns:
+  query: INSERT INTO memory.demo.test_table (id, message) VALUES (1, 'hello'), (2, 'world')
+
+- name: test_select_query
+  table: test_table
+  columns:
+  query: SELECT id, message FROM memory.demo.test_table ORDER BY id
+
+- name: national_roaming_ib_signaling
+  table: national_roaming_ib_signaling
+  columns:
+    - Day
+    - OPERATOR_NAME
+    - COUNTRY_NAME
+    - ROAM_DIRECTION
+    - ROAMING_TYPE
+    - 4G_Attach_Success_Rate_Percentage
+    - 2G_3G_Attach_Success_Rate_Percentage
+  query: INSERT INTO national_roaming_ib_signaling (${columns}) VALUES (${values})

@@ -1,0 +1,12 @@
+version: "3.8"
+
+services:
+  trino:
+    image: trinodb/trino:latest
+    container_name: trino-demo
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./Configurations/config:/etc/trino:ro
+    tmpfs:
+      - /data
